@@ -1,0 +1,21 @@
+# openas — actors and what they do with a system: who did it and for whom, the
+# effect class of a verb, grants under a system's cap, and the envelope a run
+# is reported in. The specification is SPEC.md; this package declares it in
+# C++ modules (`openas`, `openas.conformance`). Standard library only.
+[package]
+namespace   = "openlifa"
+name        = "openas"
+version     = "0.2.0"
+description = "openas: actors, effects, grants and the run envelope — the specification and its C++ modules"
+license     = "Apache-2.0"
+authors     = ["OpenLifa", "Sunrisepeak"]
+repo        = "https://github.com/openlifa/openas"
+
+[targets.openas]
+kind = "lib"
+
+[build]
+sources = ["src/*.cppm", "src/*.cpp"]
+
+[dev-dependencies]
+boost-ext.ut = "2.3.1"
