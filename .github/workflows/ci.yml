@@ -67,3 +67,7 @@ jobs:
 
       - name: Test
         run: mcpp test
+
+      - name: Check source and static-package interfaces
+        if: matrix.os == 'ubuntu-24.04' && matrix.toolchain == 'gcc@16.1.0'
+        run: python3 tools/check-distribution.py --output target/distribution.report.openas.json

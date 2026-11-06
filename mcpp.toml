@@ -14,6 +14,10 @@ repo        = "https://github.com/openlifa/openas"
 [targets.openas]
 kind = "lib"
 
+# The SDK is an acyclic public aggregation of the two existing modules.
+[lib]
+path = "src/sdk.cppm"
+
 [build]
 sources = ["src/*.cppm", "src/*.cpp"]
 
