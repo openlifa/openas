@@ -131,7 +131,34 @@ the system shows the summary with the presence (§4) it ends.
 5.4 Delegation (openas 0.2 §5) is unchanged: handing a task to another actor
 never widens what may be done.
 
-## 6. Open questions
+## 6. Where the protocols that carry agents stand
+
+What each says about the model above, read from its current text (2026-11-09).
+"—" is silence: an implementation may add it, the protocol does not carry it,
+so two implementations cannot rely on it together.
+
+| | transaction | preview | undo | asking the person | presence | a person's input wins | takeover | actor and delegation | effect classes |
+|---|---|---|---|---|---|---|---|---|---|
+| MCP 2026-07-28 | — (no protocol session; state by handles) | — | — | elicitation, `input_required` | — | — | cancellation of a request | OAuth scopes; no actor or chain in a call | hints, untrusted: read-only, destructive, idempotent, open-world |
+| MCP Apps (extension) | — | — | — | the app's own UI | — | — | — | as MCP | as MCP |
+| WebMCP (CG draft 2026-11-02) | — | — | — | — (no prompt API; the page's own) | — | — | unregistering a tool (`signal`) | — | `readOnlyHint`, `consequentialHint`, `untrustedContentHint` |
+| AG-UI | — | — | — | run interrupts, resumed with input | steps and activity events | — | — | sub-agent runs attributed | — |
+| A2UI 1.0 (candidate) | — | — | — | it is the UI the agent asks with | — | — | — | — (transport's) | — |
+| App Intents (2026) | — | confirmation snippets (the developer's view) | `UndoableIntent` | `requestConfirmation`, multiple choice | — | — | `CancellableIntent` | — (the system's) | — |
+| openas 0.2 + this draft | §1 | §2 | journal, history | §3 | §4 | §5.2 | §5.1 | 0.2 §5 | 0.2 §3 |
+
+So the pieces exist apart (App Intents' undo and confirmation, AG-UI's
+interrupts and activity, MCP's elicitation); none has the transaction and the
+preview, and none says what happens when a person and an agent act on one
+thing at once. That is what this draft adds, under any of them as transport.
+
+Sources: modelcontextprotocol.io/specification (2026-07-28, tools);
+webmachinelearning.github.io/webmcp (Draft CG Report, 2 November 2026);
+docs.ag-ui.com/concepts/events; a2ui.org/specification (v1.0 candidate);
+developer.apple.com App Intents (`requestConfirmation`, `UndoableIntent`,
+WWDC25 "Explore new advances in App Intents").
+
+## 7. Open questions
 
 - Previews across systems: an agent previewing steps in two systems at once
   has no joint "restored"; is a cross-system preview anything but each
