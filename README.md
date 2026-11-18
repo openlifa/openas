@@ -5,7 +5,7 @@ has, who may do it without asking, and how a run is reported.
 
 [![CI](https://github.com/openlifa/openas/actions/workflows/ci.yml/badge.svg?event=pull_request)](https://github.com/openlifa/openas/actions/workflows/ci.yml)
 [![spec](https://img.shields.io/badge/spec-0.2%20draft-blue)](SPEC.md)
-[![mcpp-index](https://img.shields.io/badge/mcpp--index-openlifa.openas%200.2.0-orange)](https://github.com/mcpplibs/mcpp-index)
+[![mcpp-index](https://img.shields.io/badge/mcpp--index-openlifa.openas%200.2.1-orange)](https://github.com/mcpplibs/mcpp-index)
 [![code](https://img.shields.io/badge/code-Apache--2.0-green)](LICENSE)
 [![text](https://img.shields.io/badge/text-CC%20BY--SA%204.0-lightgrey)](LICENSE-SPEC)
 
@@ -17,7 +17,7 @@ has, who may do it without asking, and how a run is reported.
 
 ```toml
 [dependencies]
-openlifa.openas = "0.2.0"
+openlifa.openas = "0.2.1"
 ```
 
 ```cpp
@@ -47,13 +47,11 @@ and no checker or protocol rules are duplicated. In particular, the core
 module does not import its own conformance client. No additional package or
 build-program stage is needed.
 
-Source and archive consumers must see these same public entry points. The
-existing indexed 0.2.0 artifact predates this corrected publishing boundary;
-use this checkout or a newly built archive to validate it until a release
-including the fix is published. This change does not publish or replace the
-existing indexed artifact. Standard version 0.2 and runtime behavior are
-unchanged. A core-API consumer need only import `openas`; that is not a claim
-that conformance source files are pruned from this package's build.
+Source and archive consumers see these same public entry points from 0.2.1
+on; the indexed 0.2.0 archive predates the SDK root and stays as it is. The
+standard's version is 0.2 in both, and what a run does is unchanged. A core-API
+consumer need only import `openas`; that is not a claim that conformance source
+files are pruned from this package's build.
 
 Run the distribution regression without a GUI (Python 3.12+ and mcpp):
 

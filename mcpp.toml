@@ -5,7 +5,7 @@
 [package]
 namespace   = "openlifa"
 name        = "openas"
-version     = "0.2.0"
+version     = "0.2.1"
 description = "openas: actors, effects, grants and the run envelope — the specification and its C++ modules"
 license     = "Apache-2.0"
 authors     = ["OpenLifa", "Sunrisepeak"]
